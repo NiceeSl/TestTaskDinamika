@@ -12,12 +12,14 @@
 1. Клонируйте репозиторий на свой компьютер:
 
     bash:
+   
     git clone https://github.com/NiceeSl/TestTaskDinamika.git
   
 
-2. В корне проекта создайте файл `application.properties` и добавьте следующие настройки для подключения к вашей базе данных:
+3. В корне проекта создайте файл `application.properties` и добавьте следующие настройки для подключения к вашей базе данных:
 
     properties:
+   
     spring.datasource.url=jdbc:mysql://localhost:3306/db_name
     spring.datasource.username=db_username
     spring.datasource.password=db_password
@@ -27,15 +29,17 @@
 
     Замените `db_name`, `db_username` и `db_password` на соответствующие значения вашей базы данных.
 
-4. Соберите проект с помощью Maven:
+5. Соберите проект с помощью Maven:
 
     bash:
+   
     mvn package
     
 
-5. Запустите JAR файл:
+7. Запустите JAR файл:
 
     bash:
+   
     java -jar target/your-project.jar
     
 
