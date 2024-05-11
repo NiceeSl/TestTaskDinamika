@@ -1,8 +1,10 @@
 package demo.demo;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
@@ -32,6 +34,14 @@ public class BookController {
         book.setIsbn(bookDetails.getIsbn());
         return bookRepository.save(book);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        return optionalBook.map(book -> ResponseEntity.ok().body(book))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
 
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
